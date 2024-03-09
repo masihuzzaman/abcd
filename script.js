@@ -1,3 +1,5 @@
+// script.js
+
 document.addEventListener("DOMContentLoaded", function () {
   const lettersContainer = document.getElementById("letters-container");
 
@@ -16,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
       enlargeLetter(this);
       playLetterSound(letter);
       blinkNextLetter(this);
+      changeBackgroundColor(this);
     });
   });
 
@@ -44,5 +47,12 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(function () {
       nextLetterElement.classList.remove("blink");
     }, 1000);
+  }
+
+  // Function to change background color to a random eye-soothing color
+  function changeBackgroundColor(element) {
+    const colors = ["#87CEEB", "#90EE90", "#FFB6C1", "#FFD700", "#ADD8E6"]; // Add more colors as needed
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    element.style.backgroundColor = randomColor;
   }
 });
